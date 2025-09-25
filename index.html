@@ -1,7 +1,159 @@
-<!-- Add Chart.js library in the head section -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="CircuitSense: A comprehensive benchmark for evaluating visual-to-mathematical reasoning in circuit understanding.">
+  <meta name="keywords" content="CircuitSense, Circuit Analysis, MLLMs, Visual Reasoning, Mathematical Modeling">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CircuitSense: Benchmarking Visual Circuit Understanding Through Symbolic Equation Derivation</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Keep the same CSS and script imports -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
 
-<!-- Model Performance Radar Chart Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">CircuitSense: A Hierarchical Circuit System Benchmark Bridging Visual Comprehension and Symbolic Reasoning in Engineering Design Process</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://armanakbari.github.io">Arman Akbari</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://utkarshsinha.com">Jian Gao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://jonbarron.info">Yifei Zou</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://sofienbouaziz.com">Mei Yang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.danbgoldman.com">Jinru Duan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Dmitrii Torbunov<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://coe.northeastern.edu/people/wang-yanzhi/">Yanzhi Wang</a><sup>1</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://yhren.github.io">Yihui Ren</a><sup>2</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://coe.northeastern.edu/people/zhang-xuan-silvia/">Xuan Zhang</a><sup>1</sup>
+            </span>
+            
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Northeastern University,</span>
+            <span class="author-block"><sup>2</sup>Brookhaven National Library</span>
+          </div>  
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block">ICLR 2026 Submission</span>
+          </div> -->
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper (Coming Soon)</span>
+                </a>
+              </span>
+              <!-- Code Link -->
+              <span class="link-block">
+                <a href="https://anonymous.4open.science/r/CircuitSense-8AC7/README.md"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- Dataset Link -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser Figure -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/overview_arman.pdf" alt="CircuitSense Overview">
+      <h2 class="subtitle has-text-centered">
+        CircuitSense evaluates the fundamental gap between visual perception and mathematical reasoning in circuit understanding. 
+        While MLLMs achieve 85%+ accuracy on component recognition, they fail catastrophically (<20%) at deriving equations from circuits.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+  
+<div class="is-size-5 publication-authors">
+  <span class="author-block"><sup>1</sup>Northeastern University,</span>
+  <span class="author-block"><sup>2</sup>Cadence Design Systems</span>
+</div>
+
+
+
+  
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Engineering design requires translating visual representations into mathematical models across hierarchical levels. 
+            While Multi-modal Large Language Models (MLLMs) excel at natural image tasks, their ability to extract equations 
+            from technical diagrams remains untested.
+          </p>
+          <p>
+            We present <b>CircuitSense</b>, a benchmark of 8,006+ problems evaluating circuit understanding across three tasks—Perception, 
+            Analysis, and Design—with emphasis on deriving symbolic equations from visual inputs. Our hierarchical synthetic 
+            pipeline generates schematics and block diagrams with guaranteed ground-truth equations.
+          </p>
+          <p>
+            Evaluating six state-of-the-art MLLMs reveals a critical gap: models achieve 85%+ accuracy on component recognition 
+            but fall below 19% on equation derivation. This performance collapse exposes the fundamental barrier to engineering AI. 
+            The correlation between equation derivation capability and design task performance confirms that mathematical understanding, 
+            not pattern recognition, defines engineering competence.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Model Performance Across Tasks</h2>
@@ -17,7 +169,69 @@
   </div>
 </section>
 
-<!-- Add this script before closing body tag -->
+  
+<!-- Key Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Key Findings</h2>
+    
+    <div class="columns">
+      <div class="column">
+        <h3 class="title is-4">Performance Gap</h3>
+        <img src="./static/images/results_chart.png" alt="Performance comparison">
+        <p>61-percentage point drop from multiple-choice (80.71%) to equation derivation (19.06%)</p>
+      </div>
+      
+      <div class="column">
+        <h3 class="title is-4">Hierarchical Evaluation</h3>
+        <img src="./static/images/hierarchy_levels.png" alt="Hierarchy levels">
+        <p>Six complexity levels from resistor networks to system block diagrams</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dataset Statistics -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Dataset</h2>
+    <div class="content">
+      <ul>
+        <li><b>8,006 problems</b> across 3 task categories</li>
+        <li><b>2,023 curated</b> textbook problems</li>
+        <li><b>5,020 synthetic</b> circuits with guaranteed equations</li>
+        <li><b>6 hierarchy levels</b> of circuit complexity</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{anonymous2026circuitsense,
+  author    = {Anonymous},
+  title     = {CircuitSense: Benchmarking Visual Circuit Understanding Through Symbolic Equation Derivation},
+  journal   = {ICLR},
+  year      = {2026},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 <script>
 // Radar chart data
 const categories = [
@@ -162,3 +376,5 @@ const radarChart = new Chart(ctx, {
     }
 });
 </script>
+</body>
+</html>
