@@ -1,207 +1,164 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="CircuitSense: A comprehensive benchmark for evaluating visual-to-mathematical reasoning in circuit understanding.">
-  <meta name="keywords" content="CircuitSense, Circuit Analysis, MLLMs, Visual Reasoning, Mathematical Modeling">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CircuitSense: Benchmarking Visual Circuit Understanding Through Symbolic Equation Derivation</title>
+<!-- Add Chart.js library in the head section -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Keep the same CSS and script imports -->
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-</head>
-<body>
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">CircuitSense: A Hierarchical Circuit System Benchmark Bridging Visual Comprehension and Symbolic Reasoning in Engineering Design Process</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://armanakbari.github.io">Arman Akbari</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://utkarshsinha.com">Jian Gao</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://jonbarron.info">Yifei Zou</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://sofienbouaziz.com">Mei Yang</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.danbgoldman.com">Jinru Duan</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              Dmitrii Torbunov<sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://coe.northeastern.edu/people/wang-yanzhi/">Yanzhi Wang</a><sup>1</sup>
-            </span>
-            <span class="author-block">
-              <a href="https://yhren.github.io">Yihui Ren</a><sup>2</sup>
-            </span>
-            <span class="author-block">
-              <a href="https://coe.northeastern.edu/people/zhang-xuan-silvia/">Xuan Zhang</a><sup>1</sup>
-            </span>
-      
-          </div>
-
-          <!-- <div class="is-size-5 publication-authors">
-            <span class="author-block">ICLR 2026 Submission</span>
-          </div> -->
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link -->
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper (Coming Soon)</span>
-                </a>
-              </span>
-              <!-- Code Link -->
-              <span class="link-block">
-                <a href="https://anonymous.4open.science/r/CircuitSense-8AC7/README.md"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                </a>
-              </span>
-              <!-- Dataset Link -->
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Dataset</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Teaser Figure -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="./static/images/overview_arman.pdf" alt="CircuitSense Overview">
-      <h2 class="subtitle has-text-centered">
-        CircuitSense evaluates the fundamental gap between visual perception and mathematical reasoning in circuit understanding. 
-        While MLLMs achieve 85%+ accuracy on component recognition, they fail catastrophically (<20%) at deriving equations from circuits.
-      </h2>
-    </div>
-  </div>
-</section>
-
-<!-- Abstract -->
+<!-- Model Performance Radar Chart Section -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Engineering design requires translating visual representations into mathematical models across hierarchical levels. 
-            While Multi-modal Large Language Models (MLLMs) excel at natural image tasks, their ability to extract equations 
-            from technical diagrams remains untested.
-          </p>
-          <p>
-            We present <b>CircuitSense</b>, a benchmark of 8,006+ problems evaluating circuit understanding across three tasks—Perception, 
-            Analysis, and Design—with emphasis on deriving symbolic equations from visual inputs. Our hierarchical synthetic 
-            pipeline generates schematics and block diagrams with guaranteed ground-truth equations.
-          </p>
-          <p>
-            Evaluating six state-of-the-art MLLMs reveals a critical gap: models achieve 85%+ accuracy on component recognition 
-            but fall below 19% on equation derivation. This performance collapse exposes the fundamental barrier to engineering AI. 
-            The correlation between equation derivation capability and design task performance confirms that mathematical understanding, 
-            not pattern recognition, defines engineering competence.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Key Results -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Key Findings</h2>
-    
-    <div class="columns">
-      <div class="column">
-        <h3 class="title is-4">Performance Gap</h3>
-        <img src="./static/images/results_chart.png" alt="Performance comparison">
-        <p>61-percentage point drop from multiple-choice (80.71%) to equation derivation (19.06%)</p>
-      </div>
-      
-      <div class="column">
-        <h3 class="title is-4">Hierarchical Evaluation</h3>
-        <img src="./static/images/hierarchy_levels.png" alt="Hierarchy levels">
-        <p>Six complexity levels from resistor networks to system block diagrams</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Dataset Statistics -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Dataset</h2>
-    <div class="content">
-      <ul>
-        <li><b>8,006 problems</b> across 3 task categories</li>
-        <li><b>2,023 curated</b> textbook problems</li>
-        <li><b>5,020 synthetic</b> circuits with guaranteed equations</li>
-        <li><b>6 hierarchy levels</b> of circuit complexity</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Citation -->
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{anonymous2026circuitsense,
-  author    = {Anonymous},
-  title     = {CircuitSense: Benchmarking Visual Circuit Understanding Through Symbolic Equation Derivation},
-  journal   = {ICLR},
-  year      = {2026},
-}</code></pre>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
+    <h2 class="title is-3">Model Performance Across Tasks</h2>
     <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>.
-          </p>
-        </div>
+      <div class="column is-10">
+        <canvas id="radarChart" style="max-height: 500px;"></canvas>
       </div>
     </div>
+    <div class="content has-text-centered" style="margin-top: 20px;">
+      <p>Performance comparison of six MLLMs across Perception, Analysis, and Design tasks. 
+      The chart reveals strong perception capabilities but catastrophic failure in mathematical analysis tasks.</p>
+    </div>
   </div>
-</footer>
+</section>
 
-</body>
-</html>
+<!-- Add this script before closing body tag -->
+<script>
+// Radar chart data
+const categories = [
+    'Noise & Jitter\nAnalysis',
+    'Power & Energy\nAnalysis',
+    'Frequency\nResponse',
+    'Transient\nResponse',
+    'Transfer Function\nAnalysis',
+    'CMR & PSRR',
+    'Small Signal\nAnalysis',
+    'Component\nIdentification',
+    'Function\nClassification',
+    'Connection\nIdentification',
+    'Circuit\nOptimization',
+    'Component\nSizing',
+    'Topology\nSelection'
+];
+
+const models = {
+    'GPT-4o':         [52, 42, 52, 6, 16, 37, 43, 100, 95, 94, 35, 40, 38],
+    'Gemini-2.5-Pro': [90, 87, 83, 13, 38, 77, 74, 100, 95, 100, 72, 78, 75],
+    'Claude-Sonnet-4':[73, 67, 64, 9, 23, 64, 66, 88, 86, 88, 55, 60, 58],
+    'InternVL3-78B':  [17, 20, 15, 3, 8, 12, 18, 76, 12, 76, 10, 15, 13],
+    'Qwen2.5-VL':     [37, 38, 40, 6, 14, 18, 31, 68, 20, 68, 25, 30, 28],
+    'GLM-4.5V':       [26, 20, 26, 4, 14, 9, 20, 78, 26, 78, 15, 18, 20]
+};
+
+// Create radar chart
+const ctx = document.getElementById('radarChart').getContext('2d');
+const radarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: categories,
+        datasets: [
+            {
+                label: 'Gemini-2.5-Pro',
+                data: models['Gemini-2.5-Pro'],
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(54, 162, 235, 1)'
+            },
+            {
+                label: 'GPT-4o',
+                data: models['GPT-4o'],
+                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(255, 99, 132, 1)'
+            },
+            {
+                label: 'Claude-Sonnet-4',
+                data: models['Claude-Sonnet-4'],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+            },
+            {
+                label: 'Qwen2.5-VL',
+                data: models['Qwen2.5-VL'],
+                borderColor: 'rgba(255, 206, 86, 1)',
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                pointBackgroundColor: 'rgba(255, 206, 86, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(255, 206, 86, 1)'
+            },
+            {
+                label: 'InternVL3-78B',
+                data: models['InternVL3-78B'],
+                borderColor: 'rgba(153, 102, 255, 1)',
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                pointBackgroundColor: 'rgba(153, 102, 255, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(153, 102, 255, 1)'
+            },
+            {
+                label: 'GLM-4.5V',
+                data: models['GLM-4.5V'],
+                borderColor: 'rgba(255, 159, 64, 1)',
+                backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                pointBackgroundColor: 'rgba(255, 159, 64, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(255, 159, 64, 1)'
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    padding: 15,
+                    font: {
+                        size: 12
+                    }
+                }
+            },
+            title: {
+                display: false
+            }
+        },
+        scales: {
+            r: {
+                angleLines: {
+                    display: true,
+                    color: 'rgba(0, 0, 0, 0.1)'
+                },
+                suggestedMin: 0,
+                suggestedMax: 100,
+                ticks: {
+                    stepSize: 20,
+                    font: {
+                        size: 10
+                    }
+                },
+                pointLabels: {
+                    font: {
+                        size: 11
+                    },
+                    callback: function(label) {
+                        // Add color coding based on task type
+                        if (label.includes('Analysis')) {
+                            return label;
+                        }
+                        return label;
+                    }
+                }
+            }
+        }
+    }
+});
+</script>
