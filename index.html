@@ -28,7 +28,10 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">CircuitSense: <br>A Hierarchical Circuit System Benchmark Bridging Visual Comprehension and Symbolic Reasoning in Engineering Design Process</h1>
+          <h1 class="title is-1 publication-title">
+            <span class="cs-title-primary">CircuitSense</span><br>
+            <span class="cs-title-subtitle">A Hierarchical Circuit System Benchmark Bridging Visual Comprehension and Symbolic Reasoning in Engineering Design Process</span>
+          </h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://armanakbari.github.io">Arman Akbari</a><sup>1</sup>,</span>
@@ -71,7 +74,7 @@
               <span class="link-block">
                 <a href="#" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
+                      <i class="ai ai-arxiv ai-lg" aria-hidden="true"></i>
                   </span>
                   <span>Paper (Coming Soon)</span>
                 </a>
@@ -89,8 +92,8 @@
               <!-- Dataset Link -->
               <span class="link-block">
                 <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
+                  <span class="icon" aria-hidden="true" style="font-size: 1.25rem;">
+                    🤗
                   </span>
                   <span>Dataset</span>
                 </a>
@@ -104,21 +107,13 @@
 </section>
 
 <section class="hero teaser">
-  <div class="container" style="max-width: 1400px;">
+  <div class="container" style="width: 1200px;">
     <div class="hero-body">
       <div class="columns is-centered">
         <div class="column is-11">
           <figure class="image overview-figure" style="width: 100%; display: flex; justify-content: center;">
-            <img src="./images/overview_arman.pdf" alt="CircuitSense Overview" style="width: 70%; height: auto; background: #fff;" />
+            <img src="./images/overview_arman.pdf" alt="CircuitSense Overview" style="width: 80%; height: auto; background: #fff;" />
           </figure>
-        </div>
-      </div>
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <h2 class="subtitle has-text-centered" style="margin-top: -10px;">
-            CircuitSense evaluates the fundamental gap between visual perception and mathematical reasoning in circuit understanding. 
-            While MLLMs achieve 85%+ accuracy on component recognition, they fail catastrophically (&lt;20%) at deriving equations from circuits.
-          </h2>
         </div>
       </div>
     </div>
@@ -143,13 +138,9 @@
             Engineering design requires translating visual representations into mathematical models across hierarchical levels. 
             While Multi-modal Large Language Models (MLLMs) excel at natural image tasks, their ability to extract equations 
             from technical diagrams remains untested.
-          </p>
-          <p>
             We present <b>CircuitSense</b>, a benchmark of 8,006+ problems evaluating circuit understanding across three tasks—Perception, 
-            Analysis, and Design—with emphasis on deriving symbolic equations from visual inputs. Our hierarchical synthetic 
-            pipeline generates schematics and block diagrams with guaranteed ground-truth equations.
-          </p>
-          <p>
+            Analysis, and Design—with emphasis on deriving symbolic equations from visual inputs. Additionally, we propose a hierarchical synthetic 
+            pipeline that generates schematics and block diagrams with guaranteed ground-truth equations.
             Evaluating six state-of-the-art MLLMs reveals a critical gap: models achieve 85%+ accuracy on component recognition 
             but fall below 19% on equation derivation. This performance collapse exposes the fundamental barrier to engineering AI. 
             The correlation between equation derivation capability and design task performance confirms that mathematical understanding, 
@@ -182,17 +173,126 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">Key Findings</h2>
     
-    <div class="columns">
-      <div class="column">
-        <h3 class="title is-4">Performance Gap</h3>
-        <img src="./static/images/interpolate_start.jpg" alt="Performance comparison">
-        <p>61-percentage point drop from multiple-choice (80.71%) to equation derivation (19.06%)</p>
+    
+
+    <div class="content" style="margin-top: 2rem;">
+      <h3 class="title is-4">Curated Analysis Task Results</h3>
+      <p class="has-text-grey">Results of curated problems for Analysis task with multiple choice and open-ended format.</p>
+      <div class="table-container">
+        <table class="table is-fullwidth is-striped is-hoverable is-bordered">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Level 0<br><span class="has-text-grey">(Resistor)</span></th>
+              <th>Level 1<br><span class="has-text-grey">(RLC)</span></th>
+              <th>Level 2<br><span class="has-text-grey">(Small Signal)</span></th>
+              <th>Level 3<br><span class="has-text-grey">(Transistor)</span></th>
+              <th>Level 4<br><span class="has-text-grey">(Block)</span></th>
+              <th>Overall<br><span class="has-text-grey">Accuracy</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th colspan="7"><em>Multiple Choice Format (%)</em></th>
+            </tr>
+            <tr>
+              <td>GPT-4o</td>
+              <td>39.80</td><td>49.58</td><td>32.88</td><td>48.80</td><td>39.58</td><td>45.07</td>
+            </tr>
+            <tr>
+              <td>Claude-Sonnet-4</td>
+              <td>66.72</td><td>71.22</td><td>61.64</td><td>72.01</td><td>66.67</td><td>69.67</td>
+            </tr>
+            <tr>
+              <td>Gemini-2.5-Pro</td>
+              <td><b>74.04</b></td><td><b>87.39</b></td><td><b>78.08</b></td><td><b>81.72</b></td><td><b>89.58</b></td><td><b>80.71</b></td>
+            </tr>
+            <tr>
+              <td>InternVL3-78B</td>
+              <td>23.16</td><td>20.59</td><td>13.70</td><td>13.11</td><td>14.58</td><td>18.06</td>
+            </tr>
+            <tr>
+              <td>Qwen2.5-VL-72b-instruct</td>
+              <td>29.53</td><td>41.60</td><td>30.14</td><td>35.94</td><td>29.17</td><td>34.90</td>
+            </tr>
+            <tr>
+              <td>GLM-4.5V</td>
+              <td>24.63</td><td>29.20</td><td>9.59</td><td>17.28</td><td>31.25</td><td>22.42</td>
+            </tr>
+            <tr>
+              <th colspan="7"><em>Open-ended format (%)</em></th>
+            </tr>
+            <tr>
+              <td>GPT-4o</td>
+              <td>29.59</td><td>29.83</td><td>19.18</td><td>13.96</td><td>17.81</td><td>22.84</td>
+            </tr>
+            <tr>
+              <td>Claude-Sonnet-4</td>
+              <td>35.56</td><td>50.21</td><td>12.33</td><td>27.04</td><td>33.33</td><td>34.76</td>
+            </tr>
+            <tr>
+              <td>Gemini-2.5-Pro</td>
+              <td><b>76.98</b></td><td><b>84.87</b></td><td><b>73.97</b></td><td><b>55.85</b></td><td><b>72.92</b></td><td><b>70.32</b></td>
+            </tr>
+            <tr>
+              <td>InternVL3-78B</td>
+              <td>20.79</td><td>19.54</td><td>6.85</td><td>14.47</td><td>10.42</td><td>17.26</td>
+            </tr>
+            <tr>
+              <td>Qwen2.5-VL-72B-Instruct</td>
+              <td>28.73</td><td>31.30</td><td>16.44</td><td>13.71</td><td>22.92</td><td>22.85</td>
+            </tr>
+            <tr>
+              <td>GLM-4.5V</td>
+              <td>34.44</td><td>39.71</td><td>13.70</td><td>19.50</td><td>25.00</td><td>28.83</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      
-      <div class="column">
-        <h3 class="title is-4">Hierarchical Evaluation</h3>
-        <img src="./static/images/interpolate_end.jpg" alt="Hierarchy levels">
-        <p>Six complexity levels from resistor networks to system block diagrams</p>
+    </div>
+    <div class="content" style="margin-top: 2rem;">
+      <h3 class="title is-4">Synthetic Problems Performance</h3>
+      <p class="has-text-grey">Performance comparison on our hierarchical synthetic problems with symbolic equation ground truth.</p>
+      <div class="table-container">
+        <table class="table is-fullwidth is-striped is-hoverable is-bordered">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Level 0<br><span class="has-text-grey">(Resistor)</span></th>
+              <th>Level 1<br><span class="has-text-grey">(RLC)</span></th>
+              <th>Level 2<br><span class="has-text-grey">(Small Signal)</span></th>
+              <th>Level 4<br><span class="has-text-grey">(Block)</span></th>
+              <th>Level 5<br><span class="has-text-grey">(System)</span></th>
+              <th>Overall</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GPT-4o</td>
+              <td>1.50</td><td>3.33</td><td>5.80</td><td>7.33</td><td>9.65</td><td>4.98</td>
+            </tr>
+            <tr>
+              <td>Claude-Sonnet-4</td>
+              <td>2.83</td><td>5.16</td><td>5.80</td><td>11.64</td><td>7.89</td><td>6.29</td>
+            </tr>
+            <tr>
+              <td>Gemini-2.5-Pro</td>
+              <td><b>3.49</b></td><td><b>11.67</b></td><td><b>38.00</b></td><td><b>12.33</b></td><td><b>35.96</b></td><td><b>19.06</b></td>
+            </tr>
+            <tr>
+              <td>InternVL3-78B</td>
+              <td>1.50</td><td>3.67</td><td>6.68</td><td>3.72</td><td>0.44</td><td>3.50</td>
+            </tr>
+            <tr>
+              <td>Qwen2.5-VL-72B-Instruct</td>
+              <td>0.83</td><td>4.17</td><td>6.03</td><td>6.64</td><td>10.09</td><td>4.96</td>
+            </tr>
+            <tr>
+              <td>GLM-4.5V</td>
+              <td>0.33</td><td>7.33</td><td>4.00</td><td>4.50</td><td>5.70</td><td>4.09</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
