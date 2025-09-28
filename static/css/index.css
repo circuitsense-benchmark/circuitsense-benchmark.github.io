@@ -127,6 +127,35 @@ body {
   padding-top: 1.5rem;
 }
 
+/* Simple carousel styles */
+.simple-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.carousel-track {
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-slide {
+  display: none;
+}
+.carousel-slide.is-active {
+  display: block;
+}
+.carousel-nav {
+  background: #222;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.carousel-nav:hover {
+  background: #363636;
+}
+
 .publication-body img {
 }
 
