@@ -19,6 +19,16 @@
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
 </head>
 <body>
@@ -36,15 +46,15 @@
             <span class="author-block">
               <a href="https://armanakbari.github.io">Arman Akbari</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://utkarshsinha.com">Jian Gao</a><sup>1</sup>,</span>
+              <a href="https://www.linkedin.com/in/jian-gao-176a86269/">Jian Gao</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://jonbarron.info">Yifei Zou</a><sup>1</sup>,
+              <a href="https://scholar.google.com/citations?user=GL9FXvMAAAAJ&hl=en">Yifei Zou</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Mei Yang</a><sup>1</sup>,
+              <a href="https://www.sonmezoglulab.com/people#h.x4vtqh7kabj">Mei Yang</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.danbgoldman.com">Jinru Duan</a><sup>1</sup>,
+              <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.linkedin.com/in/lunaduan&ved=2ahUKEwiG7pX7ofePAxUSj4kEHRLbCtcQFnoECCUQAQ&usg=AOvVaw1dh-X7iFGPJ28RVNv5A_YT">Jinru Duan</a><sup>1</sup>,
             </span>
             <span class="author-block">
               Dmitrii Torbunov<sup>2</sup>,
@@ -62,7 +72,7 @@
           </div>
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Northeastern University,</span>
-            <span class="author-block"><sup>2</sup>Brookhaven National Laboratory</span>
+            <span class="author-block"><sup>2</sup>Brookhaven National Library</span>
           </div>  
           <!-- <div class="is-size-5 publication-authors">
             <span class="author-block">ICLR 2026 Submission</span>
@@ -86,12 +96,12 @@
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (Comming Soon)</span>
+                  <span>Code</span>
                 </a>
               </span>
               <!-- Dataset Link -->
               <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://huggingface.co/datasets/armanakbari4/CircuitSense" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon" aria-hidden="true" style="font-size: 1.25rem;">
                     🤗
                   </span>
@@ -106,6 +116,8 @@
   </div>
 </section>
 
+<!-- Examples section moved below Key Findings -->
+
 <section class="hero teaser">
   <div class="container" style="width: 1200px;">
     <div class="hero-body">
@@ -119,6 +131,8 @@
     </div>
   </div>
 </section>
+
+
 
 
 
@@ -173,6 +187,54 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Key Findings</h2>
     
+    <div class="columns" style="margin-top: 2rem;">
+      <div class="column">
+        <h3 class="title is-4 has-text-centered">Perception task results</h3>
+        <div class="table-container">
+          <table class="table is-fullwidth is-striped is-hoverable is-bordered is-narrow">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Component<br>Detec. (%)</th>
+                <th>Connection<br>Ident. (%)</th>
+                <th>Function<br>Class. (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>GPT-4o</td><td>100</td><td>94</td><td>95</td></tr>
+              <tr><td>Gemini-2.5-Pro</td><td><b>100</b></td><td><b>100</b></td><td><b>95</b></td></tr>
+              <tr><td>Claude-Sonnet-4</td><td>100</td><td>88</td><td>86</td></tr>
+              <tr><td>InternVL3-72B</td><td>95</td><td>76</td><td>12</td></tr>
+              <tr><td>Qwen2.5-VL</td><td>95</td><td>68</td><td>20</td></tr>
+              <tr><td>GLM-4.5V</td><td>100</td><td>78</td><td>26</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="column">
+        <h3 class="title is-4 has-text-centered">Design task results</h3>
+        <div class="table-container">
+          <table class="table is-fullwidth is-striped is-hoverable is-bordered is-narrow">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Schematic-<br>level (%)</th>
+                <th>Block-<br>level (%)</th>
+                <th>Hierarchical-<br>Design (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>GPT-4o</td><td>10.52</td><td>36.36</td><td>18.92</td></tr>
+              <tr><td>Gemini-2.5-Pro</td><td><b>36.38</b></td><td><b>67.27</b></td><td><b>51.35</b></td></tr>
+              <tr><td>Claude-Sonnet-4</td><td>17.54</td><td>51.83</td><td>29.83</td></tr>
+              <tr><td>InternVL3-72B</td><td>7.01</td><td>52.73</td><td>29.73</td></tr>
+              <tr><td>Qwen2.5-VL</td><td>8.76</td><td>30.91</td><td>18.92</td></tr>
+              <tr><td>GLM-4.5V</td><td>15.79</td><td>50.91</td><td>32.35</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     
 
     <div class="content" style="margin-top: 2rem;">
@@ -298,17 +360,58 @@
   </div>
 </section>
 
-<!-- Dataset Statistics -->
-<section class="section">
+<section class="section" id="examples">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Dataset</h2>
-    <div class="content">
-      <ul>
-        <li><b>8,006 problems</b> across 3 task categories</li>
-        <li><b>2,023 curated</b> textbook problems</li>
-        <li><b>5,020 synthetic</b> circuits with guaranteed equations</li>
-        <li><b>6 hierarchy levels</b> of circuit complexity</li>
-      </ul>
+    <h2 class="title is-3 has-text-centered">Benchmark Examples</h2>
+    <div class="simple-carousel" aria-roledescription="carousel">
+      <button class="carousel-nav prev" aria-label="Previous example">&#8592;</button>
+      <div class="carousel-track">
+        <div class="carousel-slide is-active">
+          <div class="box">
+            <div class="columns is-vcentered">
+              <div class="column is-5 has-text-centered">
+                <img src="./static/images/q142_blockdiagram.png" alt="Example 1" style="max-height: 260px; width: auto;" />
+              </div>
+              <div class="column is-7">
+                <p><b>Task:</b> Analysis &nbsp; <b>Level:</b> 0 (Resistor)</p>
+                <p><b>Question:</b> Design the sizing and biasing voltage of an Op-Amp in SKY130nm (VDD 1.8 V) as shown in the provided circuit image.</p>
+                <p><b>Ground Truth:</b> $$\boxed{\frac{C(s)}{R(s)} = \frac{(\frac{-10}{(s^2+2s+1)}) }{ (1 - \frac{50}{(s^2+2s+1).(s+2))}}}$$</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="box">
+            <div class="columns is-vcentered">
+              <div class="column is-5 has-text-centered">
+                <img src="./static/images/q17_idealopamp.png" alt="Example 2" style="max-height: 260px; width: auto;" />
+              </div>
+              <div class="column is-7">
+                <p><b>Task:</b> Analysis &nbsp; <b>Level:</b> 4 (Block)</p>
+                <p><b>Question:</b> Derive the nodal equation for node 3 in the s-domain. Express the equation using only the circuit elements and their values as labeled in the diagram. Make sure the final answer is just the symbolic equation Vn3(s) = ..., where the right side contains only the labeled components and sources from the circuit diagram.</p>
+                <br><p><b>Ground Truth:</b> $$
+                  \boxed{Vn3(s) =  \frac{R1*V1}{(s*(C1* (R4*(L2*s^2 + R1*s + s) + R1) + L2*s+R1+R4))}}
+                  $$</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-slide">
+          <div class="box">
+            <div class="columns is-vcentered">
+              <div class="column is-5 has-text-centered">
+                <img src="./static/images/q16_smallsignal.png" alt="Example 3" style="max-height: 260px; width: auto;" />
+              </div>
+              <div class="column is-7">
+                <p><b>Task:</b> Analysis &nbsp; <b>Level:</b> 2 (Small Signal)</p>
+                <p><b>Question:</b> What is the transfer function from V1 to R2 in this circuit?</p>
+                <p><b>Ground Truth:</b> $$ \boxed{H(s) = (s/(s + 1/(C1*R2)))*1}$$</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-nav next" aria-label="Next example">&#8594;</button>
     </div>
   </div>
 </section>
@@ -320,7 +423,7 @@
     <pre><code>@article{anonymous2026circuitsense,
   author    = {Anonymous},
   title     = {CircuitSense: Benchmarking Visual Circuit Understanding Through Symbolic Equation Derivation},
-  <!-- journal   = {ICLR}, -->
+  journal   = {ICLR},
   year      = {2026},
 }</code></pre>
   </div>
@@ -353,6 +456,25 @@
   </div>
 </footer>
 <script>
+// Simple carousel logic
+document.addEventListener('DOMContentLoaded', function () {
+  const carousel = document.querySelector('.simple-carousel');
+  if (!carousel) return;
+  const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+  const prevBtn = carousel.querySelector('.prev');
+  const nextBtn = carousel.querySelector('.next');
+  let index = slides.findIndex(s => s.classList.contains('is-active'));
+  if (index < 0) index = 0;
+
+  function show(i) {
+    slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
+  }
+  function next() { index = (index + 1) % slides.length; show(index); }
+  function prev() { index = (index - 1 + slides.length) % slides.length; show(index); }
+
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+});
 // Radar chart data
 const categories = [
     'Noise & Jitter\nAnalysis',
