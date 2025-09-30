@@ -373,8 +373,8 @@
                 <img src="./static/images/q142_blockdiagram.png" alt="Example 1" style="max-height: 260px; width: auto;" />
               </div>
               <div class="column is-7">
-                <p><b>Task:</b> Analysis &nbsp; <b>Level:</b> 0 (Resistor)</p>
-                <p><b>Question:</b> Design the sizing and biasing voltage of an Op-Amp in SKY130nm (VDD 1.8 V) as shown in the provided circuit image.</p>
+                <p><b>Task:</b> Analysis-synthetic &nbsp; <b>Level:</b> 5 (System)</p>
+                <p><b>Question:</b> What is the Transfer function of the provided block diagram?</p>
                 <p><b>Ground Truth:</b> $$\boxed{\frac{C(s)}{R(s)} = \frac{(\frac{-10}{(s^2+2s+1)}) }{ (1 - \frac{50}{(s^2+2s+1).(s+2))}}}$$</p>
               </div>
             </div>
@@ -387,7 +387,7 @@
                 <img src="./static/images/q17_idealopamp.png" alt="Example 2" style="max-height: 260px; width: auto;" />
               </div>
               <div class="column is-7">
-                <p><b>Task:</b> Analysis &nbsp; <b>Level:</b> 4 (Block)</p>
+                <p><b>Task:</b> Analysis-synthetic &nbsp; <b>Level:</b> 4 (Block)</p>
                 <p><b>Question:</b> Derive the nodal equation for node 3 in the s-domain. Express the equation using only the circuit elements and their values as labeled in the diagram. Make sure the final answer is just the symbolic equation Vn3(s) = ..., where the right side contains only the labeled components and sources from the circuit diagram.</p>
                 <br><p><b>Ground Truth:</b> $$
                   \boxed{Vn3(s) =  \frac{R1*V1}{(s*(C1* (R4*(L2*s^2 + R1*s + s) + R1) + L2*s+R1+R4))}}
@@ -403,9 +403,39 @@
                 <img src="./static/images/q16_smallsignal.png" alt="Example 3" style="max-height: 260px; width: auto;" />
               </div>
               <div class="column is-7">
-                <p><b>Task:</b> Analysis &nbsp; <b>Level:</b> 2 (Small Signal)</p>
+                <p><b>Task:</b> Analysis-synthetic &nbsp; <b>Level:</b> 2 (Small Signal)</p>
                 <p><b>Question:</b> What is the transfer function from V1 to R2 in this circuit?</p>
                 <p><b>Ground Truth:</b> $$ \boxed{H(s) = (s/(s + 1/(C1*R2)))*1}$$</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+          <div class="box">
+            <div class="columns is-vcentered">
+              <div class="column is-5 has-text-centered">
+                <img src="./static/images/q748_curated.png" alt="Example 4" style="max-height: 260px; width: auto;" />
+              </div>
+              <div class="column is-7">
+                <p><b>Task:</b> Analysis-curated &nbsp; <b>Level:</b> 3 (Transistor)</p>
+                <p><b>Question:</b> The simplified schematic of a feedback amplifier is shown. Use the method of feedback analysis to find $R_{\text {out }}=V_2 / I_2$. Assume that all transistors are matched and that $g_m=1 \mathrm{~mA} / \mathrm{V}$ and $r_{d s}= \infty$.</p>
+                <p><b>Ground Truth:</b> $$50 \mathrm{k} \Omega$$</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-slide">
+          <div class="box">
+            <div class="columns is-vcentered">
+              <div class="column is-5 has-text-centered">
+                <img src="./static/images/q497_curated.png" alt="Example 5" style="max-height: 260px; width: auto;" />
+              </div>
+              <div class="column is-7">
+                <p><b>Task:</b> Analysis-curated &nbsp; <b>Level:</b> 3 (Transistor)</p>
+                <p><b>Question:</b> For the common-drain amplifier of the provided circuit image, assume $W / L=10$ and $\lambda=0$. Find the dc output voltage $V_o$ while including the body effect and with $R \rightarrow \infty$.</p>
+                <p><b>Ground Truth:</b> $$1.5 \mathrm{~V}$$</p>
               </div>
             </div>
           </div>
